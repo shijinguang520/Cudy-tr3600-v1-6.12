@@ -33,10 +33,3 @@ sed -i 's/luci.main.theme=bootstrap/luci.main.theme=argon/' package/base-files/f
 echo "uci set luci.main.theme='argon'" >> package/base-files/files/etc/uci-defaults/99-default-theme
 echo "uci commit luci" >> package/base-files/files/etc/uci-defaults/99-default-theme
 #
-
-#!/bin/bash
-# 添加ubootenv支持，SSH读写uboot环境变量
-echo "CONFIG_PACKAGE_kmod-ubootenv=y" >> .config
-echo "CONFIG_PACKAGE_uboot-envtools=y" >> .config
-# 禁用nvram版本
-sed -i '/CONFIG_PACKAGE_kmod-ubootenv-nvram/d' .config
