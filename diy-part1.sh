@@ -110,3 +110,11 @@ git clone --depth=1 https://github.com/eamonxg/luci-app-aurora-config.git packag
 
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/custom/luci-theme-kucat
 git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git package/custom/luci-app-kucat-config
+
+#!/bin/bash
+# 替换mt76为Ylarod mlo-dev WiFi7 MLO驱动
+rm -rf package/kernel/mt76
+git clone https://github.com/Ylarod/mt76.git package/kernel/mt76
+cd package/kernel/mt76
+git checkout mlo-dev
+cd ../../..
